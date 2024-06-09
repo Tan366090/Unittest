@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="blue-header" style="height: 40px; background: rgb(223, 223, 227); box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;">
+            <div style="font-weight: 900; font-size: 25px; color: black; font-family: Calibri; margin-top: 7px">Đăng nhập thành viên</div>
+        </div>
+        <form action="/" method="post" onsubmit="return handleSubmit(this)">
+            <div class="input-group">
+                <input type="text" name="email" placeholder="Email name" class="email">
+                <input type="text" value="@blu.edu.vn" readonly style="margin-left: 10px">
+            </div>
+            <br>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" class="lock">
+                <button type="button" onclick="HienMatKhau()" style="background: #4CAF50; width: 170px; height: 44px; margin-top: 0px; margin-left: 10px">Hiện</button>
+            </div>
+            <br>
+            <div class="input-group">
+                <input type="text" name="ma_so" class="code" placeholder="Mã số">
+            </div>
+            <br>
+            <button type="submit" class="dangnhap" style="width: 400px; height: 38.4px; margin: 10px 0px 0px; padding: 10px 20px; ">Đăng nhập</button>
+            <br>
+            <button type="button" class="dangnhap" style="margin-top: 30px">Đăng ký</button>
+        </form>
+    </div>
+
+    <script>
+        function HienMatKhau() {
+            var NhapMatKhau = document.querySelector('input[type="password"]');
+            if (NhapMatKhau.type === "password") {
+                NhapMatKhau.type = "text";
+            } else {
+                NhapMatKhau.type = "password";
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+<style>
+
+
+.dangnhap {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.dangnhap:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-dangnhap {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.dangnhap:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+body {
+    background-image: url("https://cdn.pixabay.com/photo/2017/08/10/00/40/stars-2616537_1280.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white; /* Set text color to white for better contrast */
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Darker shadow for contrast */
+    width: 400px;
+    text-align: center;
+}
+
+.blue-header {
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid white; /* White border for contrast */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: rgb(217, 219, 216);
+    color: black; /* Set text color to black for better visibility */
+}
+
+
+
+input[type="text"]:read-only {
+    background-color: #f0f0f0;
+     width: 130px;
+    /* Light gray background for read-only field */
+}
+
+::placeholder {
+    color: rgb(129, 129, 132); /* White placeholder color for contrast */
+    font-style: italic;
+}
+
+input[type="submit"],
+button {
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+ /* Green color */
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+button[type="button"] {
+    width: 100%; /* Full width for the "Đăng ký" button */
+    margin-top: 10px;
+}
+
+.hien {
+    font-size: 17px;
+    font-weight: bold;
+    width: 20px;
+    height: 40px;
+    text-align: center;
+    margin-left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+</style>
